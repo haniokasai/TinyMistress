@@ -29,4 +29,5 @@ You can run PMMP with Web Control Panel.
 -View Console
 
 
-
+### 日本語版
+TinyMistressは小さな女主人、どちらかと言えば小さなSの女王様という意味です。名前の通り、Pocketmineを虐げます。
