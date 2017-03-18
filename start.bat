@@ -1,0 +1,1 @@
+java -jar target/TinyMistress-1.0-SNAPSHOT.jar
