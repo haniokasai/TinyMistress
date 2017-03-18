@@ -1,5 +1,7 @@
 # TinyMistress
 Web Control Panel for PMMP
+##Download http://jenkins.haniokasai.com/job/TinyMistress/
+[![Build Status](http://jenkins.haniokasai.com/buildStatus/icon?job=TinyMistress)](http://jenkins.haniokasai.com/job/TinyMistress/ "Jenkins ")
 
 
 ## WebServer(Jetty) + PMMP => TinyMistress
