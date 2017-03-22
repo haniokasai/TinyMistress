@@ -11,11 +11,10 @@ import java.util.Map;
  * Created by hani on 2017/03/01.
  */
 public class Main{
-    public static Map<String,server> servers = new HashMap<String,server>();
+    public static final Map<String,server> servers = new HashMap<>();
 
-    static TinyLogger logger;
+    private static TinyLogger logger;
     public static config conf;
-    public static boolean bl = true;
     public static void main(String args[]){
 
         logger = new TinyLogger();
@@ -30,6 +29,7 @@ public class Main{
         {
             //mysql.shutdown();
             servers.get("a").kill();
+            servers.get("a").stopsrv();
             System.out.println("shutdown..");
         }
         ));

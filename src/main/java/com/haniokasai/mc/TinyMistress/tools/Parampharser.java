@@ -1,12 +1,11 @@
 package com.haniokasai.mc.TinyMistress.tools;
 
-import org.omg.CORBA.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.*;
-
-import org.apache.http.client.utils.URLEncodedUtils;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by hani on 2017/03/17.
@@ -16,7 +15,7 @@ public class Parampharser {
 
     public HashMap<String,String> splitQuery(String str) {
         if(str==null||str.isEmpty())return null;
-        List<org.apache.http.NameValuePair> paramsList = null;
+        List<org.apache.http.NameValuePair> paramsList;
         HashMap<String,String> map = new HashMap<>();
         try {
             paramsList = URLEncodedUtils.parse(new URI("http://foo.bar/example?"+str),"utf-8");

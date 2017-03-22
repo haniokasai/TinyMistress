@@ -10,11 +10,13 @@ import java.util.Date;
  * Created by hani on 2017/03/01.
  */
 public class TinyLogger {
-    static String sep = System.getProperty("line.separator");
+    private static final String sep = System.getProperty("line.separator");
 
-    public void nlog(String con){
-        System.out.printf("["+new Date(System.currentTimeMillis())+"][LowerLobby]:"+con+sep);
-    }
+// --Commented out by Inspection START (2017/03/22 22:14):
+//    public void nlog(String con){
+//        System.out.printf("["+new Date(System.currentTimeMillis())+"][LowerLobby]:"+con+sep);
+//    }
+// --Commented out by Inspection STOP (2017/03/22 22:14)
 
     public void elog(String con){
         System.out.printf("["+new Date(System.currentTimeMillis())+"][LowerLobby]:"+con+sep);
@@ -25,7 +27,7 @@ public class TinyLogger {
             filewriter.close();
         }catch (IOException e){
             System.out.println("File writing trouble");
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 }

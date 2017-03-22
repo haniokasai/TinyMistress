@@ -1,12 +1,10 @@
 package com.haniokasai.mc.TinyMistress.srv;
 
-import com.haniokasai.mc.TinyMistress.Main;
 import com.haniokasai.mc.TinyMistress.tools.TinyLogger;
 import com.haniokasai.mc.TinyMistress.tools.config;
 
 import java.io.*;
 import java.lang.reflect.Field;
-import java.util.Scanner;
 
 
 
@@ -14,14 +12,13 @@ import java.util.Scanner;
  * Created by hani on 2017/03/01.
  */
 public class server{
-    private static config conf;
     String srvid;
-    Long pid;
+    long pid;
     OutputStream stdin;
     String basedir;
     String srcdir;
     public Process process;
-    Boolean alive;
+    private Boolean alive;
     public InputStream is;
 
 
@@ -30,12 +27,12 @@ public class server{
     }
 
     public void start(){
-        conf = new config();
+        config conf = new config();
 
         String[] cmd=null;
         cmd=new String[]
                 {
-                        conf.phpbindir,conf.phardir
+                        conf.phpbindir, conf.phardir
                 };
 
         ProcessBuilder builder = new ProcessBuilder(cmd);
@@ -57,7 +54,7 @@ public class server{
             logger.elog(e.getMessage());
             // return false;
         }
-        long pid = -1;
+        pid = -1;
 
         try {
             Field f = process.getClass().getDeclaredField("pid");
@@ -97,7 +94,8 @@ public class server{
     public void execcmd(String cmd){
         BufferedOutputStream writer =new BufferedOutputStream(stdin);
         try {
-            writer.write((cmd+ System.getProperty("line.separator")).getBytes());
+            System.out.println(cmd);
+            writer.write((cmd+ System.getProperty("line.separator")).getBytes("UTF-8"));
             writer.flush();
         } catch (IOException e) {
             if(cmd.equals("exit")){

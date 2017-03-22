@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>TinyMistress</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h2>Control Panel</h2>
+							<p>サーバーを操作することができます。</p>
+
+								<section>
+										<div class="field half first">
+											<label for="command">サーバー:稼働中</label>
+
+
+										</div>
+										<div class="field half"></div>
+									<div class="field" style="display:inline-flex">
+										<form method="post" action="#">
+											<input type="hidden" name="action" value="start">
+											<input type="submit" value="起動">
+										</form>
+										<form method="post" action="#">
+											<input type="hidden" name="action" value="restart">
+											<input type="submit" value="再起動">
+										</form>
+										<form method="post" action="#">
+											<input type="hidden" name="action" value="stop">
+											<input type="submit" value="停止">
+										</form>
+										<form method="post" action="#">
+											<input type="hidden" name="action" value="kill">
+											<input type="submit" value="強制終了">
+										</form>
+										<input type="button" onclick="window.open('../logger')" value="ログ">
+									</div>
+									<div class="field half"></div>
+										<div class="field" style="display:inline-flex">
+											<form method="POST" action="#">
+												<input type="text" name="command" id="command"  placeholder="コマンドを入力"/>
+												<input type="submit" value="実行">
+												<input type="reset" value="取消">
+											</form>
+										</div>
+									<div id="res" ></div>
+								</section>
+							</div>
+					</section>
+
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; haniokasai. MIT Licence</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				//http://javatechnology.net/ajax/jquery-ajax-debug/
+                            var url = "http://localhost:11111/logger";
+                            var requestParam = {test : '{"key":"val"}'};
+                            $.ajax({
+                                async:true,
+                                url: url,
+                                type: 'GET',
+                                data: requestParam,
+                                success: function (data) {
+                                    // レスポンス情報を出力します。
+                                    responseDebug(data);
+                                }
+                            });
+
+					/*
+					 * デバッグ情報（レスポンス）を出力します。
+					 */
+                    function responseDebug(data) {
+                        $( '#res' ).html("Respons Data : " + data.responsData);
+                    }
+
+            </script>
+	</body>
+</html>
