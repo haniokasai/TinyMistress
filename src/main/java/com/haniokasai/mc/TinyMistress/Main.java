@@ -7,6 +7,8 @@ import com.haniokasai.mc.TinyMistress.web.WebSrv;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.haniokasai.mc.TinyMistress.tools.pid_list.mkpid_list;
+
 /**
  * Created by hani on 2017/03/01.
  */
@@ -22,8 +24,13 @@ public class Main{
         conf = new config();
        // main.test();
         (new WebSrv()).start();
+        mkpid_list();
         servers.put("a",new server());
         servers.get("a").start();
+
+
+
+
 
         Runtime.getRuntime().addShutdownHook(new Thread(() ->
         {

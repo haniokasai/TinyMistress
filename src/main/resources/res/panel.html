@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>TinyMistress</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--log_box-->
+		<style type="text/css">
+     		*.logbox
+      		{
+         		border: solid 1px #808080;
+         		width: auto;
+         		height: 300px;
+         		padding: 0.5em;
+         		overflow: auto;
+				font-size: 50%;
+      		}
+      		q  { color: #008000; }
+   		</style>
+	</head>
+	<body>
+
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h2>Control Panel</h2>
+							<p>サーバーを操作することができます。</p>
+
+								<section>
+										<div class="field half first">
+											<div id="ajax_txt">サーバー:不明</div>
+
+
+										</div>
+										<div class="field half"></div>
+									<div class="field" style="display:inline-flex">
+										<input type="button" id="bt_start" value="起動" />
+										<input type="button" id="bt_restart" value="再起動" />
+										<input type="button" id="bt_stop" value="停止" />
+										<input type="button" id="bt_kill" value="強制終了" />
+									</div>
+									<div class="field half"></div>
+										<div class="field" style="display:inline-flex">
+											<input type="text" name="cmd" id="cmd"  placeholder="コマンドを入力"/>
+											<input type="button" id="bt_cmd_exe" value="実行" />
+											<input type="button" id="bt_cmd_reset" value="取消">
+											<input type="button" id="bt_log_clear" value="ログのクリア">
+										</div>
+									<div class="field">
+									</div>
+									<div class="logbox" id="log_display" ></div>
+								</section>
+							</div>
+					</section>
+
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; haniokasai. MIT Licence</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/jquery.periodicalupdater.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+		<script src="js/tm.checkstats.js"></script>
+		<script src="js/tm.checklog.js"></script>
+	<!--ボタンテスト-->
+		<script type="text/javascript">
+            $( '#bt_restart' ) .click(
+                function() {
+                        $.post(
+                            "#",
+                            {
+                                action: "restart",
+                            },
+                            function (data) {
+                            });
+                });
+
+            $( '#bt_start' ) .click(
+                function() {
+                    $.post(
+                        "#",
+                        {
+                            action:"start",
+                        },
+                        function( data ) {
+                        });
+                });
+            $( '#bt_kill' ) .click(
+                function() {
+                    $.post(
+                        "#",
+                        {
+                            action:"kill",
+                        },
+                        function( data ) {
+                        });
+                });
+            $( '#bt_stop' ) .click(
+                function() {
+                    $.post(
+                        "#",
+                        {
+                            action:"stop",
+                        },
+                        function( data ) {
+                        });
+                });
+            $( '#bt_cmd_exe' ) .click(
+                function() {
+                    $.post(
+                        "#",
+                        {
+                            cmd:$('#cmd').val()
+                        },
+                        function( data ) {
+                        });
+                });
+            $( '#bt_cmd_reset' ) .click(
+                function() {
+                    $('#cmd').val("");
+                });
+            $( '#bt_log_clear' ) .click(
+                function() {
+                    $('#log_display').html('');
+                });
+
+			</script>
+
+	</body>
+</html>

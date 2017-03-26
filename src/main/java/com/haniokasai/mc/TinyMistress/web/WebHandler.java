@@ -12,6 +12,8 @@ import java.util.HashMap;
 
 import static com.haniokasai.mc.TinyMistress.web.handlers.def_handler.def_handler;
 import static com.haniokasai.mc.TinyMistress.web.handlers.index_handler.index_handler;
+import static com.haniokasai.mc.TinyMistress.web.handlers.info.log_handler.log_handler;
+import static com.haniokasai.mc.TinyMistress.web.handlers.info.status_handler.status_handler;
 import static com.haniokasai.mc.TinyMistress.web.handlers.logger_handler.logger_handler;
 import static com.haniokasai.mc.TinyMistress.web.handlers.panel.panel_handler.panel_handler;
 import static com.haniokasai.mc.TinyMistress.web.handlers.post.cmd_handler.cmd_handler;
@@ -50,7 +52,12 @@ class WebHandler  extends AbstractHandler
             case "/post/cmd":
                 cmd_handler(baseRequest, request, response);
                 break;
-            case "/info":
+            case "/info/status":
+                status_handler(baseRequest, response);
+                break;
+            case "/info/log":
+                log_handler(baseRequest, response);
+                break;
             case "/logger":
                 logger_handler(baseRequest, response);
                 break;
@@ -61,6 +68,7 @@ class WebHandler  extends AbstractHandler
                 def_handler(baseRequest,request,response);
                 break;
         }
+        
     }
 
 

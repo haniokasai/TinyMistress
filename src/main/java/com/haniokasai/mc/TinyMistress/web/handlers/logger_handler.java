@@ -25,8 +25,6 @@ public class logger_handler {
                 response.getWriter().println(" ");
                 response.flushBuffer();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignored) {}
     }
 }
